@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunke_wallet_project=self.webpackChunke_wallet_project||[]).push([[188],{188:function(e,t,n){n.r(t),n.d(t,{default:function(){return l}});var r=n(828),u=n(184),c=function(){return(0,u.jsx)(r.Z,{title:"Adding Cards"})},l=function(){return(0,u.jsx)(c,{})}}}]);
+//# sourceMappingURL=188.87dc32dd.chunk.js.map
