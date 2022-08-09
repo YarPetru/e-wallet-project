@@ -1,0 +1,14 @@
+.title {
+  display: inline;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 2px;
+
+  color: var(--main-dark);
+  //   background-color: var(--secondary-dark);
+  border-bottom: 2px solid var(--accent-color);
+
+  //   transition: var(--basic-transition);
+}
