@@ -1,0 +1,60 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  min-height: 300px;
+}
+
+.fieldWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.input {
+  width: 30%;
+  padding: 4px 10px;
+  display: inline; // box-sizing: border-box;
+  font-size: 16px;
+  font-family: inherit;
+  border: 1px solid var(--secondary-dark);
+  border-radius: var(--secondary-border-radius);
+}
+
+// .cardNumberInput {
+//   width: 60%;
+// }
+
+.errorMessage {
+  color: var(--accent-color);
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+.buttonsWrapper {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.formBtn {
+  padding: 4px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--main-light);
+
+  font-family: inherit;
+  font-size: 16px;
+  transition: var(--basic-transition);
+  box-shadow: var(--btn-shadow);
+
+  &:hover {
+    background-color: var(--hover-color);
+    box-shadow: var(--btn-shadow-hover);
+    cursor: pointer;
+  }
+}
+
+.cancelBtn {
+  background-color: var(--accent-red);
+}

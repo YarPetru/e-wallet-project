@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from 'react-router-dom';
 
 import BalanceInfo from 'components/BalanceInfo';
+
 import s from './Layout.module.scss';
 
 const Layout = () => {

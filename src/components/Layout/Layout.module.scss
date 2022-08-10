@@ -8,6 +8,10 @@
   padding: 15px;
 }
 
+.navigation {
+  display: flex;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -19,16 +23,11 @@
   padding-right: 15px;
 }
 
-.navigation {
-  display: flex;
-}
-
 .leftContainer {
   padding: 20px;
   background-color: white;
   border-radius: 20px;
   width: 480px;
-  height: 640px;
   box-shadow: var(--box-shadow);
 }
 
@@ -37,7 +36,6 @@
   background-color: white;
   border-radius: 20px;
   width: 640px;
-  height: 640px;
   overflow: hidden;
   box-shadow: var(--box-shadow);
 }

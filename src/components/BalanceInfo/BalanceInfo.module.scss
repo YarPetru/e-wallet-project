@@ -1,0 +1,41 @@
+.section {
+  text-align: center;
+}
+
+.cashWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+}
+
+.cardsList {
+  margin-left: 20px;
+  //   list-style: circle;
+}
+
+.cardItem {
+  display: flex;
+  justify-content: space-between;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.editButton {
+  padding: 4px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--main-light);
+
+  font-family: inherit;
+  font-size: 16px;
+  transition: var(--basic-transition);
+  box-shadow: var(--btn-shadow);
+
+  &:hover {
+    background-color: var(--hover-color);
+    box-shadow: var(--btn-shadow-hover);
+    cursor: pointer;
+  }
+}
