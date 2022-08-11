@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/309.9dcfef4c.chunk.css","mappings":"AAAA,mCACE,gBAGF,8BAGE,wBACA,mBAFA,YADA,WAGA","sources":["components/CardDetails/CardDetails.module.scss"],"sourcesContent":[".detailsWrapper {\n  margin-top: 20px;\n}\n\n.cardBlock {\n  width: 100px;\n  height: 50px;\n  border: 2px solid tomato;\n  border-radius: 10px;\n}\n"],"names":[],"sourceRoot":""}
