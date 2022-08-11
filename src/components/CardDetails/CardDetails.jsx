@@ -1,8 +1,16 @@
+import { useSelector } from 'react-redux/es/exports';
 import Title from 'components/Title';
 import Card from './Card';
 import s from './CardDetails.module.scss';
 
 const CardDetails = () => {
+  const cards = useSelector(state => state.cards);
+  console.log(cards);
+
+  const onDeleteCard = cardId => {
+    console.log(`хочу удалить карту с id ${cardId}`);
+  };
+
   return (
     <>
       <Title title="Details" />
@@ -13,9 +21,26 @@ const CardDetails = () => {
         </div>
 
         <ul className={s.cardsList}>
-          <li className={s.card}>
-            <Card />
-          </li>
+          {cards &&
+            cards.map(card => (
+              <li key={card.id} className={s.cardItem}>
+                <Card
+                  bank="Bank"
+                  typeCard="debit"
+                  cardNumber={card.cardNumber}
+                  cardHolder={card.cardHolder}
+                  expiry={card.expiry}
+                  network="mastercard"
+                />
+                <button
+                  className={s.deleteCardBtn}
+                  type="button"
+                  onClick={() => onDeleteCard(card.id)}
+                >
+                  Remove
+                </button>
+              </li>
+            ))}
         </ul>
       </div>
     </>

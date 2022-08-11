@@ -12,18 +12,15 @@
 }
 
 .input {
+  box-sizing: border-box;
   width: 30%;
   padding: 4px 10px;
-  display: inline; // box-sizing: border-box;
+  display: inline;
   font-size: 16px;
   font-family: inherit;
   border: 1px solid var(--secondary-dark);
   border-radius: var(--secondary-border-radius);
 }
-
-// .cardNumberInput {
-//   width: 60%;
-// }
 
 .errorMessage {
   color: var(--accent-color);

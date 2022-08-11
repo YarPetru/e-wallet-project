@@ -20,7 +20,7 @@ const schema = yup.object().shape({
   cvv: yup.string().integer().length(3).required('CVV is a requred field'),
   cardHolder: yup.string(),
   amount: yup.number().required('Amount is a requred field'),
-  currency: yup.string().required('You should to choose a currency'),
+  currency: yup.string().required('You have to choose a currency'),
 });
 
 const initialValues = {

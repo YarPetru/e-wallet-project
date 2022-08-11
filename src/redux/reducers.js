@@ -1,10 +1,12 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { combineReducers } from '@reduxjs/toolkit';
+import { nanoid } from 'nanoid';
 import { addCard, deleteCard, editCash } from './actions';
 
 const cards = createReducer(
   [
     {
+      id: nanoid(),
       amount: '88800',
       cardHolder: 'Andrew Drew',
       cardName: 'Mono',
@@ -14,6 +16,7 @@ const cards = createReducer(
       expiry: '2024-06',
     },
     {
+      id: nanoid(),
       amount: '100',
       cardHolder: 'Cataline Frey',
       cardNumber: '3213214445558785',

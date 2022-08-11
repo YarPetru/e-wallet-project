@@ -4,7 +4,7 @@ import Title from 'components/Title';
 const EditCashPage = () => {
   return (
     <>
-      <Title title="Edit your cash" />
+      <Title title="Edit cash" />
       <EditCashContent />
     </>
   );
