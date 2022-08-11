@@ -8,8 +8,12 @@ import * as reduxActions from 'redux/actions';
 import Title from 'components/Title';
 import s from './Modal.module.scss';
 
+yup.addMethod(yup.string, 'integer', function () {
+  return this.matches(/^\d+$/, 'The field should have digits only');
+});
+
 const schema = yup.object().shape({
-  amount: yup.number().required('Amount is a requred field'),
+  amount: yup.number().integer().required('Amount is a requred field'),
   currency: yup.string().required('You have to choose a currency'),
 });
 

@@ -1,13 +1,12 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-
-// import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
+import { toast } from 'react-toastify';
 
-// import { useGetCardInfoQuery } from 'redux/cardInfo/cardInfoSlice';
 import * as reduxActions from 'redux/actions';
 import Title from 'components/Title';
 import s from './NewCardForm.module.scss';
+import luhn from 'fast-luhn';
 
 yup.addMethod(yup.string, 'integer', function () {
   return this.matches(/^\d+$/, 'The field should have digits only');
@@ -22,7 +21,7 @@ const schema = yup.object().shape({
   expiry: yup.string().required('Expiry is a requred field'),
   cvv: yup.string().integer().length(3).required('CVV is a requred field'),
   cardHolder: yup.string(),
-  amount: yup.number().required('Amount is a requred field'),
+  amount: yup.number().integer().required('Amount is a requred field'),
   currency: yup.string().required('You have to choose a currency'),
 });
 
@@ -36,7 +35,7 @@ const initialValues = {
 };
 
 const NewCardForm = () => {
-  const cards = useSelector(state => state.cards);
+  const cards = useSelector(state => state.wallet.cards);
 
   const dispatch = useDispatch();
 
@@ -47,6 +46,7 @@ const NewCardForm = () => {
       alert('You already have card with the same number');
 
     !currentNumbers.includes(values.cardNumber) &&
+      luhn(values.cardNumber) &&
       dispatch(
         reduxActions.addCard(
           values.amount,
@@ -56,8 +56,13 @@ const NewCardForm = () => {
           values.cvv,
           values.expiry
         )
+      ) &&
+      actions.resetForm();
+
+    luhn(values.cardNumber) === false &&
+      toast.warn(
+        '😢 You entered the invalid card number - it does not satisfy the luhn algorithm. Try again, please'
       );
-    actions.resetForm();
   };
 
   return (

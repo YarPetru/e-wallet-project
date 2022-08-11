@@ -1,6 +1,9 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Layout from './Layout';
 
 const HomePage = lazy(() => import('pages/HomePage'));
@@ -18,6 +21,7 @@ export const App = () => {
         </Route>
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
+      <ToastContainer theme="colored" position="top-center" autoClose={3000} />
     </Suspense>
   );
 };
