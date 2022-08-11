@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux/es/exports';
+import { useSelector } from 'react-redux/es/exports';
 import { Link } from 'react-router-dom';
 
 import Modal from 'components/Modal';
@@ -8,7 +8,7 @@ import Title from 'components/Title';
 import s from './BalanceInfo.module.scss';
 
 const BalanceInfo = () => {
-  const cards = useSelector(state => state.cards);
+  // const cards = useSelector(state => state.cards);
   const [cash] = useSelector(state => state.cash);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -19,7 +19,7 @@ const BalanceInfo = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   return (
     <section className={s.section}>

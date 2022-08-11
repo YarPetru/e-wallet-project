@@ -18,7 +18,7 @@ export const addCard = createAction(
 
 export const deleteCard = createAction('cards/delete_card');
 
-export const addCash = createAction('cash/add_cash', (amount, currency) => ({
+export const editCash = createAction('cash/add_cash', (amount, currency) => ({
   payload: {
     id: nanoid(),
     amount,

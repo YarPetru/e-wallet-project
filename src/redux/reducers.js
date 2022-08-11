@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { combineReducers } from '@reduxjs/toolkit';
-import { addCard, deleteCard, addCash } from './actions';
+import { addCard, deleteCard, editCash } from './actions';
 
 const cards = createReducer(
   [
@@ -40,9 +40,12 @@ const cash = createReducer(
     },
   ],
   {
-    [addCash]: (state, { payload }) => {
-      return [payload, ...state];
+    [editCash]: (_, { payload }) => {
+      return [payload];
     },
+    // [addCash]: (state, { payload }) => {
+    //   return [payload, ...state];
+    // },
   }
 );
 
