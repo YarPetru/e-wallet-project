@@ -9,6 +9,13 @@ import s from './BalanceInfo.module.scss';
 
 const BalanceInfo = () => {
   const [cash] = useSelector(state => state.wallet.cash);
+  // const cards = useSelector(state => state.wallet.cards);
+
+  // const totalUsd = cards.reduce();
+
+  // const totalEur = cards.reduce();
+
+  // const totalUah = cards.reduce();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -24,6 +31,10 @@ const BalanceInfo = () => {
   return (
     <section className={s.section}>
       <Title title="Total Balance" />
+
+      {/* {totalUsd && <p className="totalAmount">{`${totalUsd} USD`}</p>}
+      {totalEur && <p className="totalAmount">{`${totalEur} EUR`}</p>}
+      {totalUah && <p className="totalAmount">{`${totalUah} UAH`}</p>} */}
 
       <h4 className={s.typeName}>Cash</h4>
       <div className={s.cashWrapper}>

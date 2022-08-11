@@ -43,7 +43,7 @@ const NewCardForm = () => {
     const currentNumbers = cards.map(card => card.cardNumber);
 
     currentNumbers.includes(values.cardNumber) &&
-      alert('You already have card with the same number');
+      toast.warn('You already have card with the same number');
 
     !currentNumbers.includes(values.cardNumber) &&
       luhn(values.cardNumber) &&
