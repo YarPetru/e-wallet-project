@@ -1,18 +1,18 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const cardInfoApi = createApi({
-  reducerPath: 'cardApi',
+  reducerPath: 'cardInfoApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://lookup.binlist.net/',
   }),
-  tagTypes: ['cardInfo'],
+  tagTypes: ['cardInfoApi'],
   endpoints: builder => ({
     getCardInfo: builder.query({
       query: cardNumber => ({
-        url: `/${cardNumber}`,
+        url: `${cardNumber}`,
         method: 'GET',
       }),
-      providesTags: ['cardInfo'],
+      providesTags: ['cardInfoApi'],
     }),
   }),
 });

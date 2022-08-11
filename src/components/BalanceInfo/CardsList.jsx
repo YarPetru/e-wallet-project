@@ -6,19 +6,21 @@ import { useSelector } from 'react-redux/es/exports';
 import s from './BalanceInfo.module.scss';
 
 const CardsList = () => {
-  const cards = useSelector(state => state.cards);
+  const cards = useSelector(state => state.wallet.cards);
+
   return (
     <ul className={s.cardsList}>
-      {cards.map(card => (
-        <li key={nanoid()} className={s.cardItem}>
-          <p className={s.cardInfo}>{`${card.amount} ${card.currency}`}</p>
-          {/* <Link to="/"> */}
-          <button className={s.editButton} type="button">
-            Details
-          </button>
-          {/* </Link> */}
-        </li>
-      ))}
+      {cards &&
+        cards.map(card => (
+          <li key={nanoid()} className={s.cardItem}>
+            <p className={s.cardInfo}>{`${card.amount} ${card.currency}`}</p>
+            {/* <Link to="/"> */}
+            <button className={s.editButton} type="button">
+              Details
+            </button>
+            {/* </Link> */}
+          </li>
+        ))}
     </ul>
   );
 };

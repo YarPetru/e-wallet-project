@@ -1,9 +1,12 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
+// import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
-import Title from 'components/Title';
+
+// import { useGetCardInfoQuery } from 'redux/cardInfo/cardInfoSlice';
 import * as reduxActions from 'redux/actions';
+import Title from 'components/Title';
 import s from './NewCardForm.module.scss';
 
 yup.addMethod(yup.string, 'integer', function () {
@@ -54,7 +57,6 @@ const NewCardForm = () => {
           values.expiry
         )
       );
-    console.log(values, actions);
     actions.resetForm();
   };
 

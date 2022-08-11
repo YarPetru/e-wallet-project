@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
 import {
   persistStore,
   persistReducer,
@@ -10,6 +11,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { cardInfoApi } from './cardInfo/cardInfoSlice';
 
 import wallet from './reducers';
 
@@ -21,13 +23,20 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, wallet);
 
 export const store = configureStore({
-  reducer: persistedReducer,
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
+  reducer: {
+    [cardInfoApi.reducerPath]: cardInfoApi.reducer,
+    wallet: persistedReducer,
+  },
+  middleware: getDefaultMiddleware => [
+    ...getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
+    cardInfoApi.middleware,
+  ],
 });
+
+setupListeners(store.dispatch);
 
 export const persistor = persistStore(store);
