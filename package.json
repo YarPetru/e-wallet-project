@@ -2,7 +2,6 @@
   "name": "e-wallet-project",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yarpetru.github.io/e-wallet-project/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/jest-dom": "^5.16.3",
@@ -33,7 +32,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint:js": "eslint src/**/*.{js,jsx}",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "predeploy": "npm run build",
+    "deploy": "netlify deploy -p"
   },
   "eslintConfig": {
     "extends": [
