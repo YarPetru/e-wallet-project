@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/e-wallet-project/static/css/main.9f20cda5.css",
-    "main.js": "/e-wallet-project/static/js/main.df4d5c3b.js",
-    "static/css/309.93bb6a92.chunk.css": "/e-wallet-project/static/css/309.93bb6a92.chunk.css",
-    "static/js/309.9cd357f4.chunk.js": "/e-wallet-project/static/js/309.9cd357f4.chunk.js",
-    "static/css/307.2498d416.chunk.css": "/e-wallet-project/static/css/307.2498d416.chunk.css",
-    "static/js/307.c24b19ca.chunk.js": "/e-wallet-project/static/js/307.c24b19ca.chunk.js",
+    "main.css": "/e-wallet-project/static/css/main.8f34aa8d.css",
+    "main.js": "/e-wallet-project/static/js/main.f6048cff.js",
+    "static/css/309.81df891f.chunk.css": "/e-wallet-project/static/css/309.81df891f.chunk.css",
+    "static/js/309.5bd37c56.chunk.js": "/e-wallet-project/static/js/309.5bd37c56.chunk.js",
+    "static/css/307.f5ba299e.chunk.css": "/e-wallet-project/static/css/307.f5ba299e.chunk.css",
+    "static/js/307.b8e35051.chunk.js": "/e-wallet-project/static/js/307.b8e35051.chunk.js",
     "static/css/964.44950746.chunk.css": "/e-wallet-project/static/css/964.44950746.chunk.css",
     "static/js/964.06693f5d.chunk.js": "/e-wallet-project/static/js/964.06693f5d.chunk.js",
     "static/media/money-bg.png": "/e-wallet-project/static/media/money-bg.64361f68d282743b4130.png",
-    "static/media/visa-logo.png": "/e-wallet-project/static/media/visa-logo.a56c4d1bf0c6aa9135c8.png",
+    "static/media/visa-logo.png": "/e-wallet-project/static/media/visa-logo.7ab1df7137a48bdb469f.png",
     "static/media/mastercard-logo.png": "/e-wallet-project/static/media/mastercard-logo.5bdc564f0cd135bb5bb7.png",
     "index.html": "/e-wallet-project/index.html",
-    "main.9f20cda5.css.map": "/e-wallet-project/static/css/main.9f20cda5.css.map",
-    "main.df4d5c3b.js.map": "/e-wallet-project/static/js/main.df4d5c3b.js.map",
-    "309.93bb6a92.chunk.css.map": "/e-wallet-project/static/css/309.93bb6a92.chunk.css.map",
-    "309.9cd357f4.chunk.js.map": "/e-wallet-project/static/js/309.9cd357f4.chunk.js.map",
-    "307.2498d416.chunk.css.map": "/e-wallet-project/static/css/307.2498d416.chunk.css.map",
-    "307.c24b19ca.chunk.js.map": "/e-wallet-project/static/js/307.c24b19ca.chunk.js.map",
+    "main.8f34aa8d.css.map": "/e-wallet-project/static/css/main.8f34aa8d.css.map",
+    "main.f6048cff.js.map": "/e-wallet-project/static/js/main.f6048cff.js.map",
+    "309.81df891f.chunk.css.map": "/e-wallet-project/static/css/309.81df891f.chunk.css.map",
+    "309.5bd37c56.chunk.js.map": "/e-wallet-project/static/js/309.5bd37c56.chunk.js.map",
+    "307.f5ba299e.chunk.css.map": "/e-wallet-project/static/css/307.f5ba299e.chunk.css.map",
+    "307.b8e35051.chunk.js.map": "/e-wallet-project/static/js/307.b8e35051.chunk.js.map",
     "964.44950746.chunk.css.map": "/e-wallet-project/static/css/964.44950746.chunk.css.map",
     "964.06693f5d.chunk.js.map": "/e-wallet-project/static/js/964.06693f5d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9f20cda5.css",
-    "static/js/main.df4d5c3b.js"
+    "static/css/main.8f34aa8d.css",
+    "static/js/main.f6048cff.js"
   ]
 }
