@@ -31,33 +31,33 @@ pre-commit hooks.
 
 ### Додаткові бібліотеки/пакети, що використовувались
 
-[Formik]https://formik.org/ - створення та робота з формами
+[Formik](https://formik.org/) - створення та робота з формами
 
-[yup]https://www.npmjs.com/package/yup - валідація форм всі помилки прописуються
-поруч з інпутами при зміні фокусу та помилці в заповенні
+[yup](https://www.npmjs.com/package/yup) - валідація форм всі помилки
+прописуються поруч з інпутами при зміні фокусу та помилці в заповенні
 
-[React-Toastify]https://www.npmjs.com/package/react-toastify -
+[React-Toastify](https://www.npmjs.com/package/react-toastify) -
 тости-попередження або інформування про успішні дії
 
-[Prop-Types]https://www.npmjs.com/package/prop-types - для перевірки
+[Prop-Types](https://www.npmjs.com/package/prop-types) - для перевірки
 корректності переданих пропсів
 
-[nanoid]https://www.npmjs.com/package/nanoid - для генерації id при додаванні
+[nanoid](https://www.npmjs.com/package/nanoid) - для генерації id при додаванні
 карток
 
-[fast-luhn]https://www.npmjs.com/package/fast-luhn - додаткова валідація на
+[fast-luhn](https://www.npmjs.com/package/fast-luhn) - додаткова валідація на
 відповідність номера карта luhn-алгоритму. Відбувається при сабміті форми. В
 разі некорректного номеру картки викликається Тост-попередження, картка не
 створюється, проте скидання форми для зручності не відбувається. Таким чином
 можна лише виправити номер, а не вводити всі дані спочатку.
 
-[react-tooltip]https://www.npmjs.com/package/react-tooltip - підказка для юзера,
-яка виникає при наведенні курсору на номер карти, про те, що його можна
+[react-tooltip](https://www.npmjs.com/package/react-tooltip) - підказка для
+юзера, яка виникає при наведенні курсору на номер карти, про те, що його можна
 скопіювати по кліку. Додана задля кращого юзер експірієнта, проте працєю
 повністю коректно лише без StrictMode. Для більш коректної роботи проведена
 додаткова обробки через useState.
 
-[react-copy-to-clipboard]https://www.npmjs.com/package/react-copy-to-clipboard -
+[react-copy-to-clipboard](https://www.npmjs.com/package/react-copy-to-clipboard) -
 безпосередньо копіювання по кліку.
 
 ---
@@ -68,7 +68,7 @@ pre-commit hooks.
 
 ## `npm run deploy`
 
-Розгортає проект на [Netlify]https://ypi-e-wallet.netlify.app/, попередньо
+Розгортає проект на [Netlify](https://ypi-e-wallet.netlify.app/), попередньо
 створюючи білд-версію.
 
 ---
