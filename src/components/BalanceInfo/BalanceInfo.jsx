@@ -9,13 +9,27 @@ import s from './BalanceInfo.module.scss';
 
 const BalanceInfo = () => {
   const [cash] = useSelector(state => state.wallet.cash);
-  // const cards = useSelector(state => state.wallet.cards);
+  const cards = useSelector(state => state.wallet.cards);
 
-  // const totalUsd = cards.reduce();
+  const totalMoney = [...cards, cash];
 
-  // const totalEur = cards.reduce();
+  const usdCards = totalMoney.filter(item => item.currency === 'USD');
+  const totalUsd = usdCards.reduce(
+    (total, item) => total + Number(item.amount),
+    0
+  );
 
-  // const totalUah = cards.reduce();
+  const uahCards = totalMoney.filter(item => item.currency === 'UAH');
+  const totalUah = uahCards.reduce(
+    (total, item) => total + Number(item.amount),
+    0
+  );
+
+  const eurCards = totalMoney.filter(item => item.currency === 'EUR');
+  const totalEur = eurCards.reduce(
+    (total, item) => total + Number(item.amount),
+    0
+  );
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -26,16 +40,21 @@ const BalanceInfo = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-  // const dispatch = useDispatch();
 
   return (
     <section className={s.section}>
       <Title title="Total Balance" />
-
-      {/* {totalUsd && <p className="totalAmount">{`${totalUsd} USD`}</p>}
-      {totalEur && <p className="totalAmount">{`${totalEur} EUR`}</p>}
-      {totalUah && <p className="totalAmount">{`${totalUah} UAH`}</p>} */}
-
+      <div className={s.totalWrapper}>
+        {totalUsd !== 0 && (
+          <p className={s.totalAmountUsd}>{`${totalUsd} USD`}</p>
+        )}
+        {totalEur !== 0 && (
+          <p className={s.totalAmountEur}>{`${totalEur} EUR`}</p>
+        )}
+        {totalUah !== 0 && (
+          <p className={s.totalAmountUah}>{`${totalUah} UAH`}</p>
+        )}
+      </div>
       <h4 className={s.typeName}>Cash</h4>
       <div className={s.cashWrapper}>
         {cash && (

@@ -21,7 +21,7 @@ const schema = yup.object().shape({
   expiry: yup.string().required('Expiry is a requred field'),
   cvv: yup.string().integer().length(3).required('CVV is a requred field'),
   cardHolder: yup.string(),
-  amount: yup.number().integer().required('Amount is a requred field'),
+  amount: yup.string().integer().required('Amount is a requred field'),
   currency: yup.string().required('You have to choose a currency'),
 });
 

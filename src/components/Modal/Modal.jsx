@@ -13,7 +13,7 @@ yup.addMethod(yup.string, 'integer', function () {
 });
 
 const schema = yup.object().shape({
-  amount: yup.number().integer().required('Amount is a requred field'),
+  amount: yup.string().integer().required('Amount is a requred field'),
   currency: yup.string().required('You have to choose a currency'),
 });
 

@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+.totalWrapper {
+  margin-top: 20px;
+}
+
+.totalWrapper {
+  color: var(--accent-color);
+  font-size: 20px;
+  font-weight: 500;
+}
+
 .cashWrapper {
   display: flex;
   justify-content: space-between;
@@ -10,7 +20,6 @@
 
 .cardsList {
   margin-left: 20px;
-  //   list-style: circle;
 }
 
 .cardItem {

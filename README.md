@@ -1,93 +1,126 @@
-# Getting Started with Create React App
+# Додаток e-wallet
 
-This project was bootstrapped with
-[Create React App](https://github.com/facebook/create-react-app).
+Цей веб-застосунок предствлено в якості тестового завдання для EVO Fintech
 
-## Available Scripts
+Проект створено за допомогою
+[Create React App](https://github.com/facebook/create-react-app) з використанням
+додаткових конфігурацій для зручності розробки, в тому числі налаштовано
+pre-commit hooks.
 
-In the project directory, you can run:
+## З використанням наступних технологій:
 
-### `npm start`
+### React Router v6
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- для зручної навігації по сторінкам.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Redux
 
-### `npm test`
+- для зручної роботи зі станом, а також для збереження даних у localstorage в
+  якості доступної імітації бекенду;
+- додатково використано RTK Query для відправки запитів на API
+  https://binlist.net/ для отримання додаткової інформації, що використовується
+  при рендері карти.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests)
-for more information.
+### Стилізація
 
-### `npm run build`
+- модульна з використанням SASS, без додаткових бібліотек компонентів.
+- нажаль для дотримання дедлайну додаток зроблено в першу чергу для десктопу, не
+  використовуючи підхід mobile-first. Проте стилі написані з елементами
+  адаптивної верстки, тому в тому числі на мобільному пристрої додатком можливо
+  скористатись.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best
-performance.
+### Додаткові бібліотеки/пакети, що використовувались
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[Formik]https://formik.org/ - створення та робота з формами
 
-See the section about
-[deployment](https://facebook.github.io/create-react-app/docs/deployment) for
-more information.
+[yup]https://www.npmjs.com/package/yup - валідація форм всі помилки прописуються
+поруч з інпутами при зміні фокусу та помилці в заповенні
 
-### `npm run eject`
+[React-Toastify]https://www.npmjs.com/package/react-toastify -
+тости-попередження або інформування про успішні дії
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+[Prop-Types]https://www.npmjs.com/package/prop-types - для перевірки
+корректності переданих пропсів
 
-If you aren't satisfied with the build tool and configuration choices, you can
-`eject` at any time. This command will remove the single build dependency from
-your project.
+[nanoid]https://www.npmjs.com/package/nanoid - для генерації id при додаванні
+карток
 
-Instead, it will copy all the configuration files and the transitive
-dependencies (webpack, Babel, ESLint, etc) right into your project so you have
-full control over them. All of the commands except `eject` will still work, but
-they will point to the copied scripts so you can tweak them. At this point
-you're on your own.
+[fast-luhn]https://www.npmjs.com/package/fast-luhn - додаткова валідація на
+відповідність номера карта luhn-алгоритму. Відбувається при сабміті форми. В
+разі некорректного номеру картки викликається Тост-попередження, картка не
+створюється, проте скидання форми для зручності не відбувається. Таким чином
+можна лише виправити номер, а не вводити всі дані спочатку.
 
-You don't have to ever use `eject`. The curated feature set is suitable for
-small and middle deployments, and you shouldn't feel obligated to use this
-feature. However we understand that this tool wouldn't be useful if you couldn't
-customize it when you are ready for it.
+[react-tooltip]https://www.npmjs.com/package/react-tooltip - підказка для юзера,
+яка виникає при наведенні курсору на номер карти, про те, що його можна
+скопіювати по кліку. Додана задля кращого юзер експірієнта, проте працєю
+повністю коректно лише без StrictMode. Для більш коректної роботи проведена
+додаткова обробки через useState.
 
-## Learn More
+[react-copy-to-clipboard]https://www.npmjs.com/package/react-copy-to-clipboard -
+безпосередньо копіювання по кліку.
 
-You can learn more in the
-[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## `npm start`
 
-### Code Splitting
+запуск проекту в розробку
 
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## `npm run deploy`
 
-### Analyzing the Bundle Size
+Розгортає проект на [Netlify]https://ypi-e-wallet.netlify.app/, попередньо
+створюючи білд-версію.
 
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Кілька зауважень щодо використання застосунку
 
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+0. Навігація реалізована за допомогою React-Router. Зміна шляхів відображується
+   в url, та підсвічується активна сторінка в навігації.
+1. На головній сторінці підраховуєть Загальний баланс по кожній з валют з
+   урахуванням кешу та карткових балансів. При зміні переліку карток всі суми
+   актуалізуються.
+2. Сумму кешу можна відредагувати, натиснувши кнопку "Edit". Після натискання
+   відкривається модальне вікно, де можна ввести суму та обрати валюту. Модальне
+   вікно закривається в разі успішного збереження нової суми після натискання на
+   кнопку "Save", при натисканні на "Cancel", або ж по кліку на оверлей чи
+   натисканні Esc.
+3. Перелік карткових балансів актуалізується після кожної зміни в переліку
+   карток. По кліку на кнопку "Details" можна з любої сторінки повернутись на
+   головну, де відображені деталі по кожній картці. Слід зазначити, що на даному
+   етапі реалізована можливість роботи з цілочисленими сумами, позаяк додатково
+   прописана валідація при введені сум враховує саме цілі числа.
+4. В правій частині на головній сторінці деталі по картакам а також додаткова
+   навігація. 4.1. Додаткові дані для повного рендеру карток отримуються завдяки
+   запиту на https://binlist.net/. Отримані дані за наявністю відображаються на
+   картках (це назва банку, тип картки та платіжна система - мастеркард та віза
+   з лого, решта - текстом). 4.2. При наведенні курсору на номер картки
+   з'явлється хінт про те, що номер карти можна скопіювати. Клік - і номер
+   картки в буфері. 4.3. Тут також можна видалити картку, перейти на сторінку
+   створення нової картки чи на сторінку актуалізації балансу кешу.
+5. Форма створення нової картки відповідає вимогам. Всі поля валідуються, при
+   некоректному введенні справа відображається підказка. Поле Імені власника
+   картки не є обов'язковим для успішного додавання картки. Зброс всіх полів
+   можна зробити, натиснувши кнопку "Cancel".
+6. Для зручного тесту застосунку рекомендую використовувати номери карток з
+   зазначених нижче. Це перевірені картки, по яким повертається коректна
+   додаткова інформація з https://binlist.net/ : 4151500000000008,
+   5100060000000002, 5201288822696974, 5201281592331633, 5201286153771465. Це
+   пов'язано з тим що по частині з карток, наданих на ресурсі
+   https://docs.adyen.com/development-resources/testing/test-card-numbers не
+   доступні коректні додаткові дані, проте на такий випадок викликається тост з
+   помилкою, після чого невідрендерену картку можна видалити.
+7. Сторінка edit my cash додана для зручності. З неї можна також відкрити
+   модальне вікно, яке зачиняється в разі успішного збереження нової суми після
+   натискання на кнопку "Save", при натисканні на "Cancel", або ж по кліку на
+   оверлей чи натисканні Esc.
 
-### Advanced Configuration
+---
 
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## На остачу, що хотілося б ще допрацювати, та забракло часу(окрім останнього пункту, там забракло досвіду):
 
-### Deployment
-
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-4151500000000008, 5100060000000002, 5201288822696974
+1. Звісно маскування номера карти - не встиг розібратись в рамках дедлайну.
+2. Фліп карти і доступ до CVV зі зворотнього боку
+3. Додати спінери при виконанні запитів з використанням пропсів з useQuery
+4. Перевірити опрацювання помилок та попереджень для більш якісного UX
+5. Додати бек (скоро закінчу курс з Node.js та обов'язково зроблю це).
