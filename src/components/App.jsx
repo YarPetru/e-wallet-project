@@ -12,16 +12,18 @@ const EditCashPage = lazy(() => import('pages/EditCashPage'));
 
 export const App = () => {
   return (
-    <Suspense fallback="LOADING...">
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/add-card" element={<AddCardPage />} />
-          <Route path="/edit-cash" element={<EditCashPage />} />
-        </Route>
-        <Route path="/*" element={<Navigate to="/" />} />
-      </Routes>
-      <ToastContainer theme="colored" position="top-center" autoClose={3000} />
-    </Suspense>
+    <>
+      <Suspense fallback="LOADING...">
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/add-card" element={<AddCardPage />} />
+            <Route path="/edit-cash" element={<EditCashPage />} />
+          </Route>
+          <Route path="/*" element={<Navigate to="/" />} />
+        </Routes>
+      </Suspense>
+      <ToastContainer theme="light" position="top-center" autoClose={3000} />
+    </>
   );
 };

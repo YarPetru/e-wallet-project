@@ -80,7 +80,21 @@
   background-color: var(--accent-red);
 }
 
+.cardNumberWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 90%;
+}
+
 .cardNumber {
+  margin-right: 10px;
   font-size: 20px;
   cursor: pointer;
+}
+
+.copyIcon {
+  outline: none;
+  cursor: copy;
 }

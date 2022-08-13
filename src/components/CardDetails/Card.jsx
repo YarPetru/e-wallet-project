@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
+import { FiCopy } from 'react-icons/fi';
 import ReactTooltip from 'react-tooltip';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
@@ -12,8 +13,26 @@ import s from './CardDetails.module.scss';
 const Card = ({ cardNumber, cardHolder, expiry }) => {
   const [tooltip, showTooltip] = useState(true);
   const [isCopied, setIsCopied] = useState(false);
+  const [isShowNumber, setIsShowNumber] = useState(false);
 
-  isCopied && toast.success('Card number is successfully copied');
+  const splittedCardNum = cardNumber.match(/.{4}/g).join(' ');
+
+  const getHiddenNumber = () => {
+    const array = cardNumber.split('');
+    for (let i = 0; i < array.length; i += 1) {
+      if (i >= 4 && i < 12) {
+        array[i] = '*';
+      }
+    }
+    return array.join('').match(/.{4}/g).join(' ');
+  };
+
+  const hiddenNumber = getHiddenNumber();
+
+  isCopied &&
+    toast.success('Card number is successfully copied', {
+      toastId: 'success1',
+    });
 
   const {
     data: additionalCardData,
@@ -25,7 +44,10 @@ const Card = ({ cardNumber, cardHolder, expiry }) => {
     toast.error(
       `Error ${JSON.stringify(
         error.status
-      )}, additional card data is not available`
+      )}, additional card data is not available`,
+      {
+        toastId: 'error1',
+      }
     );
 
   return (
@@ -41,19 +63,48 @@ const Card = ({ cardNumber, cardHolder, expiry }) => {
               <p className={s.typeCard}>{additionalCardData.type}</p>
             )}
           </div>
-          <CopyToClipboard text={cardNumber} onCopy={() => setIsCopied(true)}>
+          {/* {!isShowNumber && (
             <p
-              data-tip="click to copy card number"
+              data-tip="click to show all number"
               onMouseEnter={() => showTooltip(true)}
               onMouseLeave={() => {
                 showTooltip(false);
                 setTimeout(() => showTooltip(true), 50);
               }}
               className={s.cardNumber}
+              onMouseDown={() => setIsShowNumber(prev => !prev)}
             >
-              {cardNumber}
+              {hiddenNumber}
             </p>
-          </CopyToClipboard>
+          )} */}
+          {/* {isShowNumber && */}
+
+          <div className={s.cardNumberWrapper}>
+            <p
+              data-tip="click to show or hide number"
+              onMouseEnter={() => showTooltip(true)}
+              onMouseLeave={() => {
+                showTooltip(false);
+                setTimeout(() => showTooltip(true), 50);
+              }}
+              className={s.cardNumber}
+              onMouseDown={() => setIsShowNumber(prev => !prev)}
+            >
+              {isShowNumber ? splittedCardNum : hiddenNumber}
+            </p>
+            <CopyToClipboard text={cardNumber} onCopy={() => setIsCopied(true)}>
+              <FiCopy
+                className={s.copyIcon}
+                data-tip="click to copy card number"
+                onMouseEnter={() => showTooltip(true)}
+                onMouseLeave={() => {
+                  showTooltip(false);
+                  setTimeout(() => showTooltip(true), 50);
+                }}
+              />
+            </CopyToClipboard>
+          </div>
+
           <div className={s.cardFooter}>
             <div className={s.footerLeftBlock}>
               {cardHolder && <p className={s.cardHolder}>{cardHolder}</p>}

@@ -43,7 +43,9 @@ const NewCardForm = () => {
     const currentNumbers = cards.map(card => card.cardNumber);
 
     currentNumbers.includes(values.cardNumber) &&
-      toast.warn('You already have card with the same number');
+      toast.warn('You already have card with the same number', {
+        toastId: 'warn1',
+      });
 
     !currentNumbers.includes(values.cardNumber) &&
       luhn(values.cardNumber) &&
@@ -61,7 +63,10 @@ const NewCardForm = () => {
 
     luhn(values.cardNumber) === false &&
       toast.warn(
-        '😢 You entered the invalid card number - it does not satisfy the luhn algorithm. Try again, please'
+        '😢 You entered the invalid card number - it does not satisfy the luhn algorithm. Try again, please',
+        {
+          toastId: 'warn2',
+        }
       );
   };
 
